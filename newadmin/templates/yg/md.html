@@ -1,0 +1,18 @@
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            {% for item in thead %}
+                <th>{{ item }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in tbody %}
+            <tr>
+                {% for val in item %}
+                    <td>{{ val }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

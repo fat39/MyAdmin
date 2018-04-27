@@ -1,0 +1,38 @@
+    <form method="POST" novalidate>
+        {% csrf_token %}
+        {% for col in form %}
+            {% if col.is_popup %}
+                <p>
+                    {{ col.item.field.label }}
+                    {{ col.item }}
+                    <a onclick="popupOpen('{{ col.popup_url }}')" href="#">添加</a>
+                    <span>{{ col.item.errors.0 }}</span>
+                </p>
+            {% else %}
+                <p>{{ col.item.field.label }}:{{ col.item }}<span>{{ col.item.errors.0 }}</span></p>
+            {% endif %}
+        {% endfor %}
+        <input type="submit">
+    </form>
+
+
+<div>
+    {% for item in form %}
+        .....
+    {% endfor %}
+
+</div>
+
+
+<script>
+    function popupCallBack(data_dict){
+        var tag = document.createElement("option");
+        tag.innerHTML = data_dict.text;
+        tag.setAttribute("value",data_dict.pk);
+        tag.setAttribute("selected","selected");
+        document.getElementById(data_dict.popid).appendChild(tag);
+    }
+    function popupOpen(url){
+        window.open(url,url,"status=1,height:500,width:600,toolbar=0, resizeable=0");
+    }
+</script>

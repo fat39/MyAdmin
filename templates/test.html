@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>用户：<input type="text"></p>
+    <p>用户组：
+        <select name="" id="ugID">
+        {% for user_group in user_group_list %}
+            <option value="{{ user_group.id }}">{{ user_group.title }}</option>
+        {% endfor %}
+        
+        </select>
+    <a href="/addtest/">添加</a>
+    <a href="#" onclick="popupUrl('/addtest/?popup=ugID')">popup添加</a>
+    </p>
+    <script>
+        function popupCallBack(data_dict){
+            var tag = document.createElement("option");
+            tag.innerHTML = data_dict.text;
+            tag.setAttribute("value",data_dict.pk);
+            tag.setAttribute("selected","selected");
+            document.getElementById(data_dict.popid).appendChild(tag);
+        }
+        function popupUrl(url){
+            window.open(url,"win_name","status=1,height:500,width:600,toolbar=0, resizeable=0");
+        }
+    </script>
+
+</body>
+</html>

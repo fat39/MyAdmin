@@ -1,0 +1,25 @@
+{% load yg_form %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>编辑数据</h1>
+    {% add_or_edit form %}
+{#    <form method="POST" novalidate>#}
+{#        {% csrf_token %}#}
+{#        {% for item in form %}#}
+{#            <p>{{ item.field.label }}:{{ item }}<span>{{ item.errors.0 }}</span></p>#}
+{#        {% endfor %}#}
+{#        <input type="submit">#}
+{#    </form>#}
+{#    <form method="POST">#}
+{#        #}
+{#        {% csrf_token %}#}
+{#        {{ form.as_p }}#}
+{#        <input type="submit">#}
+{#    </form>#}
+</body>
+</html>
